@@ -35,6 +35,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             string[] splitOnEqual = splitOnMultiply[1].Split('=');
             var B = splitOnEqual[0];
             var C = splitOnEqual[1];
+            var missingDIgitHolder = '?';
             var result = -1;
             var ans = 0.0;
             string evaluatedEquation ="";
@@ -42,27 +43,27 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             //Checking which string variable contain "?" mark and storing the evaluated result in ans
             if(A.Equals("0") || B.Equals("0") || !equation.Contains("?"))
                 return result;
-            if(A.Contains("?"))
+            if(A.Contains(missingDIgitHolder))
             {
                 ans = double.Parse(C)/double.Parse(B);
                 evaluatedEquation= ans.ToString() + "*" + B + "=" + C; 
             }
-            else if(B.Contains("?"))
+            else if(B.Contains(missingDIgitHolder))
             {
                 ans = double.Parse(C)/double.Parse(A);
                 evaluatedEquation = A + "*" + ans.ToString() + "=" + C;
             }
-            else if(C.Contains("?"))
+            else if(C.Contains(missingDIgitHolder))
             {
                 ans = double.Parse(A) * double.Parse(B);
                 evaluatedEquation = A + "*" + B + "=" + ans.ToString();
             }
-            char tempChar;
+            
             //Comparing the original and evaluated variables and finding the missing value
             if(equation.Length == evaluatedEquation.Length)
             {
                 int indexOfQuestionMark = equation.IndexOf('?');
-                tempChar = evaluatedEquation[ indexOfQuestionMark ];
+                var tempChar = evaluatedEquation[ indexOfQuestionMark ];
                 result = tempChar  - '0';
                 return result;
             }
