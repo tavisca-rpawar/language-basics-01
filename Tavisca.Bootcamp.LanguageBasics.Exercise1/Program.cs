@@ -20,8 +20,15 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             Console.WriteLine($"{args} : {result}");
         }
 
+        private static void Test(string args, int expected)
+        {
+            var result = FindDigit(args).Equals(expected) ? "PASS" : "FAIL";
+            Console.WriteLine($"{args} : {result}");
+        }
+
         public static int FindDigit(string equation)
-        { // Add your code here.
+        {         
+            // Add your code here.
             //Splitting The equation into three variables eg. 42*47=1?74 to A=42 B=47 and C=1?74
             string[] splitOnMultiply = equation.Split('*');
             var A = splitOnMultiply[0];
@@ -33,7 +40,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             string evaluatedEquation ="";
 
             //Checking which string variable contain "?" mark and storing the evaluated result in ans
-            if(C.Equals(0))
+            if(A.Equals("0") || B.Equals("0") || !equation.Contains("?"))
                 return result;
             if(A.Contains("?"))
             {
