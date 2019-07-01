@@ -30,15 +30,14 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
         {         
             // Add your code here.
             //Splitting The equation into three variables eg. 42*47=1?74 to A=42 B=47 and C=1?74
-            string[] splitOnMultiply = equation.Split('*');
-            var A = splitOnMultiply[0];
-            string[] splitOnEqual = splitOnMultiply[1].Split('=');
-            var B = splitOnEqual[0];
-            var C = splitOnEqual[1];
+            string[] tokens = equation.Split(new[]{'*', '='});
+            var A = tokens[0];
+            var B = tokens[1];
+            var C = tokens[2];
             var missingDIgitHolder = '?';
             var result = -1;
             var ans = 0.0;
-            string evaluatedEquation ="";
+            string evaluatedEquation = "";
 
             //Checking which string variable contain "?" mark and storing the evaluated result in ans
             if(A.Equals("0") || B.Equals("0") || !equation.Contains("?"))
