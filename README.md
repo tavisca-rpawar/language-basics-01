@@ -36,7 +36,7 @@ We know that 42*47 = 1974, so the missing digit is 9.
 
 Returns: 2
 
-The same equation, another missing digit.
+The same equation, another missing digit. 
 
 **#3**
 
